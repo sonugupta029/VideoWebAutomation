@@ -6,9 +6,9 @@ import com.testAutomation.core.BaseTestScript
 import com.testAutomation.screens.DashboardScreen
 import com.testAutomation.screens.VideoHubScreen
 import com.testAutomation.utils.HtmlReporter
-import org.apache.log4j.Logger
 import org.testng.Assert
 import org.testng.annotations.Test
+import java.util.logging.Logger
 
 /**
  * Description:

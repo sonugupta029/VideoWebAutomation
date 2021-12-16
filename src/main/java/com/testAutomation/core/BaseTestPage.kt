@@ -1,6 +1,5 @@
 package com.testAutomation.core
 
-import org.apache.log4j.Logger
 import org.openqa.selenium.By
 import org.openqa.selenium.JavascriptExecutor
 import org.openqa.selenium.TimeoutException
@@ -9,6 +8,7 @@ import org.openqa.selenium.remote.RemoteWebDriver
 import org.openqa.selenium.support.ui.ExpectedCondition
 import org.openqa.selenium.support.ui.WebDriverWait
 import java.lang.Exception
+import java.util.logging.Logger
 
 /**
  * Description:
@@ -18,7 +18,7 @@ import java.lang.Exception
 
 open class BaseTestPage(private val webDriver: RemoteWebDriver) {
 
-    val logger: Logger = Logger.getLogger("BaseTestPage")
+    val logger = Logger.getLogger("BaseTestPage")
 
     fun isElementDisplayedAfterTimeout(objectLocator: By, timeoutInSeconds: Int): Boolean {
         val wait = WebDriverWait(webDriver, timeoutInSeconds.toLong())
@@ -28,7 +28,7 @@ open class BaseTestPage(private val webDriver: RemoteWebDriver) {
             }
             return true
         } catch (e: TimeoutException) {
-            logger.warn("isMobileElementDisplayedAfterTimeout - time out waiting for element to be displayed: [$objectLocator]")
+            logger.info("isMobileElementDisplayedAfterTimeout - time out waiting for element to be displayed: [$objectLocator]")
             return false
         }
 
@@ -83,7 +83,7 @@ open class BaseTestPage(private val webDriver: RemoteWebDriver) {
         val element: WebElement? = getWebElement(objectToFind)
         var attribute: String? = null
         if (element != null) {
-            logger.trace("getElementAttribute - Found requested element: $objectToFind")
+            logger.info("getElementAttribute - Found requested element: $objectToFind")
             try {
                 attribute = element.getAttribute(attributeName)
             }catch (e: Exception){

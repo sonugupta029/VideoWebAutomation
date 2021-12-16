@@ -2,13 +2,13 @@ package com.testAutomation.core
 
 import com.testAutomation.utils.HtmlReporter
 import com.testAutomation.utils.ProjectConstants
-import org.apache.log4j.Logger
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions
 import org.openqa.selenium.remote.RemoteWebDriver
 import org.testng.ITestContext
 import org.testng.annotations.*
 import java.lang.Exception
+import java.util.logging.Logger
 
 /**
  * Description:
@@ -43,7 +43,7 @@ open class BaseTestScript {
             webDriver = ChromeDriver(chromeOptions)
         }
         catch (exception: Exception){
-            logger.info("unable to start webdriver")
+            logger.info("unable to start webdriver: [$exception]")
         }
     }
 
